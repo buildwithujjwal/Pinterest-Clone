@@ -23,7 +23,7 @@ app.use(
   expressSession({
     resave: false,
     saveUninitialized: false,
-    secret: "hey hey hey",
+    secret: process.env.SESSION_SECRET,
   }),
 );
 app.use(passport.initialize());
