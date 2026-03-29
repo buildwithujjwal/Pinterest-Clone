@@ -23,24 +23,7 @@ router.get('/register', function(req, res) {
   res.render("index", { title: "Express" });
 })
 
-
-
-// router.get('/feed', isLoggedIn,  function(req, res, next) {
-//   res.render('feed');
-// });
-
-router.get("/test", function (req, res) {
-  res.send("The router is working!");
-});
-
-// router.post("/upload", upload.single("file"), async function(req, res) {
-//   console.log("req.file:", req.file);
-//   console.log("req.body:", req.body);
-//   res.send("done");
-// });
-
 router.post("/upload", isLoggedIn, upload.single("file"), async function(req, res) {
-  console.log(req.body); 
   if(!req.file){
     return res.status(404).send('No files were uploaded.');
   }
