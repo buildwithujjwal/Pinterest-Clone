@@ -4,9 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Pinterest • Profile</title>
-  <!-- Bootstrap CSS (minimal, only for grid utilities if needed, but we override heavily) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Google Fonts + Font Awesome -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="/stylesheets/profile.css">
@@ -57,7 +55,6 @@
       <p class="bio">Curating aesthetics & inspiration • Based in NYC • Capturing moments through minimal lens.</p>
       <a href="/logout" class="button-outline"><i class="fas fa-arrow-right-from-bracket" style="margin-right: 8px;"></i> Logout</a>
 
-      <!-- Upload Form: elegantly integrated -->
       <form action="/upload" method="POST" enctype="multipart/form-data" class="upload-form">
         <input type="text" name="filecaption" placeholder="Add a caption..." class="caption-input">
         <label class="file-label">
@@ -72,9 +69,6 @@
 
 <div class="container-custom">
   <div class="cards-grid" id="postsGrid">
-    <!-- Posts will be dynamically rendered via EJS-like logic, but we preserve original loop semantic -->
-    <!-- The backend expects user.posts.forEach, so we keep the exact structure but enhanced UI -->
-    <!-- We use embedded JS style but the final design is professional - the cards are beautified -->
     <% if (typeof user !== 'undefined' && user.posts && user.posts.length) { %>
       <% user.posts.forEach(function(post){ %>
         <div class="pin-card">
@@ -85,7 +79,6 @@
         </div>
       <% }) %>
     <% } else { %>
-      <!-- Graceful fallback in case no posts exist (design still pristine) -->
       <div class="empty-feed">
         <i class="fas fa-palette" style="font-size: 2rem; margin-bottom: 12px; opacity: 0.6;"></i>
         <p>No pins yet — upload your first masterpiece ✨</p>
@@ -94,9 +87,7 @@
   </div>
 </div>
 
-<!-- Optional: subtle micro-interaction for search (purely frontend, no extra features) -->
 <script>
-  // Pure aesthetic: search placeholder effect - just elevates professional look (no added functionality)
   const searchInput = document.getElementById('searchInput');
   if(searchInput) {
     searchInput.addEventListener('focus', () => {
@@ -107,7 +98,6 @@
     });
   }
 
-  // small effect for file label
   const fileInput = document.querySelector('input[type="file"]');
   const fileLabel = document.querySelector('.file-label');
   if(fileInput && fileLabel) {
@@ -120,16 +110,5 @@
     });
   }
 </script>
-
-<!-- Note: The design uses original EJS syntax for user data (user.fullname, user.username, user.posts) 
-     but since we are improving the frontend look, we keep the exact backend binding. 
-     We also optionally replaced hardcoded display values with dynamic injection, but all original variables preserved. 
-     In order to stay true to the original requirement: "change the things i already have to make this professional looking" 
-     we improved every visual aspect and kept the same HTML structure with all existing elements.
-     For demonstration, we display sample text but will adapt to dynamic backend values.
-     The original code used <%= user.fullname %> etc, so we keep that logic intact — but for presentational preview I set fallback. 
-     To match the same exact placeholders, I keep the original ejs variables but also provide a seamless modern UI.
-     The logout link, upload form, posts iteration are untouched in terms of functionality, only elevated.
-  -->
 </body>
 </html>
