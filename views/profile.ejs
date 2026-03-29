@@ -57,9 +57,9 @@
 
       <form action="/upload" method="POST" enctype="multipart/form-data" class="upload-form">
         <input type="text" name="filecaption" placeholder="Add a caption..." class="caption-input">
-        <label class="file-label">
+        <label>
           <i class="fas fa-cloud-upload-alt"></i> Choose image
-          <input type="file" name="file">
+          <input type="file" name="file" required>
         </label>
         <input type="submit" value="Post" class="submit-btn">
       </form>
@@ -70,14 +70,16 @@
 <div class="container-custom">
   <div class="cards-grid" id="postsGrid">
     <% if (typeof user !== 'undefined' && user.posts && user.posts.length) { %>
+
       <% user.posts.forEach(function(post){ %>
         <div class="pin-card">
-          <img src="<%= post.image.startsWith('http') ? post.image : '/images/uploads/' + post.image %>" class="card-img" alt="post image">
+          <img src="<%= post.image.startsWith('https') ? post.image : '../images/uploads/' + post.image %>" class="card-img" alt="post image">
           <div class="card-body-custom">
             <h5 class="card-title-custom"><%= post.text %></h5>
           </div>
         </div>
       <% }) %>
+
     <% } else { %>
       <div class="empty-feed">
         <i class="fas fa-palette" style="font-size: 2rem; margin-bottom: 12px; opacity: 0.6;"></i>
