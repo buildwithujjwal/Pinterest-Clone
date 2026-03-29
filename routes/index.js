@@ -15,6 +15,7 @@ router.get('/', function(req, res, next) {
 
 router.get("/LoggedInfeed", async function (req, res) {
   const posts = await postModel.find({}).populate("user");
+  posts.sort(() => Math.random() - 0.5);
   res.render("LoggedInfeed", { title: "express" , posts});
 });
 
