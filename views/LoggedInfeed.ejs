@@ -46,7 +46,7 @@
             <% posts.forEach(function(post){ %>
             <div class="pin-card featured-pin">
                 <div class="pin-image">
-                    <img src="<%= post.image.startsWith('http') ? post.image : '/images/uploads/' + post.image %>" alt="No Plan B">
+                   <img src="<%= post.image ? (post.image.startsWith('http') ? post.image : '/images/uploads/' + post.image) : '' %>" alt="No Plan B">
                     <div class="pin-overlay">
                         <button class="save-btn">Save</button>
                         <div class="pin-actions">

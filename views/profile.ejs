@@ -73,7 +73,7 @@
 
       <% user.posts.forEach(function(post){ %>
         <div class="pin-card">
-          <img src="<%= post.image.startsWith('https') ? post.image : '../images/uploads/' + post.image %>" class="card-img" alt="post image">
+          <img src="<%= post.image ? (post.image.startsWith('http') ? post.image : '/images/uploads/' + post.image) : '' %>" class="card-img" alt="post image">
           <div class="card-body-custom">
             <h5 class="card-title-custom"><%= post.text %></h5>
           </div>
