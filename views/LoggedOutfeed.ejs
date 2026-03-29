@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinterest Clone</title>
+    <link rel="stylesheet" href="/stylesheets/LoggedOutfeed.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar - Pinterest Style -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="/" class="logo">
+                    <i class="fab fa-pinterest"></i>
+                    <span>Pinterest</span>
+                </a>
+                <a href="/register" class="nav-link">Explore</a>
+            </div>
+            
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search for easy dinners, fashion, etc." id="searchInput">
+            </div>
+            
+            <div class="nav-right">
+                <a href="/about" class="nav-link">About</a>
+                <a href="/business" class="nav-link">Businesses</a>
+                <a href="/create" class="nav-link">Create</a>
+                <a href="/news" class="nav-link">News</a>
+                
+                <div class="auth-buttons">
+                    <a href="/login" class="login-btn">Login</a>
+                    <a href="/register" class="signup-btn">Sign up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="feed-container">
+        <div class="masonry-grid" id="pinGrid">
+            <!-- Pin 1 -->
+            <div class="pin-card" data-category="nature">
+                <div class="pin-image">
+                    <img src="https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg" alt="Mountain View">
+                    <div class="pin-overlay">
+                        <button class="save-btn">Save</button>
+                        <div class="pin-actions">
+                            <i class="far fa-heart"></i>
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="pin-info">
+                    <p class="pin-title">Beautiful Mountain View</p>
+                    <p class="pin-author">@nature_lover</p>
+                </div>
+            </div>
+
+            <!-- Pin 2 -->
+            <div class="pin-card" data-category="architecture">
+                <div class="pin-image">
+                    <img src="https://images.pexels.com/photos/210186/pexels-photo-210186.jpeg" alt="Modern Architecture">
+                    <div class="pin-overlay">
+                        <button class="save-btn">Save</button>
+                        <div class="pin-actions">
+                            <i class="far fa-heart"></i>
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="pin-info">
+                    <p class="pin-title">Modern Architecture Design</p>
+                    <p class="pin-author">@arch_daily</p>
+                </div>
+            </div>
+
+            <!-- Pin 3 -->
+            <div class="pin-card" data-category="nature">
+                <div class="pin-image">
+                    <img src="https://images.unsplash.com/photo-1773613007135-270400bd790e" alt="Golden Wheat Field">
+                    <div class="pin-overlay">
+                        <button class="save-btn">Save</button>
+                        <div class="pin-actions">
+                            <i class="far fa-heart"></i>
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="pin-info">
+                    <p class="pin-title">Golden Wheat Field Sunset</p>
+                    <p class="pin-author">@sunset_seeker</p>
+                </div>
+            </div>
+
+            <!-- Pin 4 -->
+            <div class="pin-card" data-category="nature">
+                <div class="pin-image">
+                    <img src="https://images.pexels.com/photos/9754/mountains-clouds-forest-fog.jpg" alt="Misty Mountains">
+                    <div class="pin-overlay">
+                        <button class="save-btn">Save</button>
+                        <div class="pin-actions">
+                            <i class="far fa-heart"></i>
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="pin-info">
+                    <p class="pin-title">Misty Mountain Forest</p>
+                    <p class="pin-author">@mountain_adventures</p>
+                </div>
+            </div>
+
+            <!-- Pin 5 -->
+            <div class="pin-card" data-category="food">
+                <div class="pin-image">
+                    <img src="https://images.pexels.com/photos/3586966/pexels-photo-3586966.jpeg" alt="Coffee Art">
+                    <div class="pin-overlay">
+                        <button class="save-btn">Save</button>
+                        <div class="pin-actions">
+                            <i class="far fa-heart"></i>
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="pin-info">
+                    <p class="pin-title">Beautiful Coffee Art</p>
+                    <p class="pin-author">@coffee_lover</p>
+                </div>
+            </div>
+
+            <!-- Pin 6 -->
+            <div class="pin-card" data-category="nature">
+                <div class="pin-image">
+                    <img src="https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg" alt="Sunset Beach">
+                    <div class="pin-overlay">
+                        <button class="save-btn">Save</button>
+                        <div class="pin-actions">
+                            <i class="far fa-heart"></i>
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="pin-info">
+                    <p class="pin-title">Tropical Beach Sunset</p>
+                    <p class="pin-author">@beach_vibes</p>
+                </div>
+            </div>
+
+            <!-- Pin 7 -->
+            <div class="pin-card" data-category="art">
+                <div class="pin-image">
+                    <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5" alt="Abstract Art">
+                    <div class="pin-overlay">
+                        <button class="save-btn">Save</button>
+                        <div class="pin-actions">
+                            <i class="far fa-heart"></i>
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="pin-info">
+                    <p class="pin-title">Colorful Abstract Art</p>
+                    <p class="pin-author">@art_inspiration</p>
+                </div>
+            </div>
+
+            <!-- Pin 8 -->
+            <div class="pin-card" data-category="fashion">
+                <div class="pin-image">
+                    <img src="https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg" alt="Fashion Style">
+                    <div class="pin-overlay">
+                        <button class="save-btn">Save</button>
+                        <div class="pin-actions">
+                            <i class="far fa-heart"></i>
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="pin-info">
+                    <p class="pin-title">Modern Fashion Trends</p>
+                    <p class="pin-author">@fashion_style</p>
+                </div>
+            </div>
+
+            <!-- Pin 9 -->
+            <div class="pin-card" data-category="architecture">
+                <div class="pin-image">
+                    <img src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg" alt="City Architecture">
+                    <div class="pin-overlay">
+                        <button class="save-btn">Save</button>
+                        <div class="pin-actions">
+                            <i class="far fa-heart"></i>
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="pin-info">
+                    <p class="pin-title">Urban City Architecture</p>
+                    <p class="pin-author">@city_explorer</p>
+                </div>
+            </div>
+
+            <!-- Pin 10 -->
+            <div class="pin-card" data-category="food">
+                <div class="pin-image">
+                    <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg" alt="Delicious Food">
+                    <div class="pin-overlay">
+                        <button class="save-btn">Save</button>
+                        <div class="pin-actions">
+                            <i class="far fa-heart"></i>
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="pin-info">
+                    <p class="pin-title">Gourmet Dishes</p>
+                    <p class="pin-author">@foodie_delights</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Save button functionality
+        document.querySelectorAll('.save-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if(this.textContent === 'Save') {
+                    this.textContent = 'Saved';
+                    this.style.backgroundColor = '#e60023';
+                } else {
+                    this.textContent = 'Save';
+                    this.style.backgroundColor = '#e60023';
+                }
+            });
+        });
+
+        // Heart icon functionality
+        document.querySelectorAll('.pin-actions .fa-heart').forEach(heart => {
+            heart.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if(this.classList.contains('far')) {
+                    this.classList.remove('far');
+                    this.classList.add('fas');
+                    this.style.color = '#e60023';
+                } else {
+                    this.classList.remove('fas');
+                    this.classList.add('far');
+                    this.style.color = '#fff';
+                }
+            });
+        });
+
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        if(searchInput) {
+            searchInput.addEventListener('input', function(e) {
+                const searchTerm = e.target.value.toLowerCase();
+                const pins = document.querySelectorAll('.pin-card');
+                
+                pins.forEach(pin => {
+                    const title = pin.querySelector('.pin-title').textContent.toLowerCase();
+                    const author = pin.querySelector('.pin-author').textContent.toLowerCase();
+                    
+                    if(title.includes(searchTerm) || author.includes(searchTerm)) {
+                        pin.style.display = 'block';
+                    } else {
+                        pin.style.display = 'none';
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+</html>

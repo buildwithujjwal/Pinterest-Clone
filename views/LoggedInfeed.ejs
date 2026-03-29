@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinterest Clone</title>
+    <link rel="stylesheet" href="/stylesheets/LoggedInfeed.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="/LoggedInfeed" class="logo">
+                    <i class="fab fa-pinterest"></i>
+                    <span>Pinterest</span>
+                </a>
+            </div>
+            
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Q Search" id="searchInput">
+            </div>
+            
+            <div class="nav-right">
+                <a href="/notifications" class="nav-icon">
+                    <i class="far fa-bell"></i>
+                </a>
+                <a href="/messages" class="nav-icon">
+                    <i class="far fa-comment"></i>
+                </a>
+                <a href="/profile" class="profile-avatar">
+                    <img src="https://i.pravatar.cc/300?img=7" alt="Profile">
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Feed Container -->
+
+    
+    <main class="feed-container">
+        <div class="masonry-grid">
+            <% posts.forEach(function(post){ %>
+            <div class="pin-card featured-pin">
+                <div class="pin-image">
+                    <img src="<%= post.image.startsWith('http') ? post.image : '/images/uploads/' + post.image %>" alt="No Plan B">
+                    <div class="pin-overlay">
+                        <button class="save-btn">Save</button>
+                        <div class="pin-actions">
+                            <i class="far fa-heart"></i>
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="pin-info">
+                    <p class="pin-title"><%=post.text%></p>
+                    <p class="pin-author">@<%= post.user.username %></p> 
+                </div>
+            </div>
+            <% }) %>
+        </div>
+    </main>
+
+    <!-- Time Display -->
+    <div class="time-display">
+        <span class="time">18:10</span>
+    </div>
+
+    <script>
+        // Interactive functionality
+        document.querySelectorAll('.save-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if(this.textContent === 'Save') {
+                    this.textContent = 'Saved';
+                    this.style.backgroundColor = '#e60023';
+                } else {
+                    this.textContent = 'Save';
+                    this.style.backgroundColor = '#e60023';
+                }
+            });
+        });
+
+        document.querySelectorAll('.pin-actions .fa-heart').forEach(heart => {
+            heart.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if(this.classList.contains('far')) {
+                    this.classList.remove('far');
+                    this.classList.add('fas');
+                    this.style.color = '#e60023';
+                } else {
+                    this.classList.remove('fas');
+                    this.classList.add('far');
+                    this.style.color = '#fff';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

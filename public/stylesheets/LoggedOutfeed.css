@@ -1,0 +1,324 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* Navigation Bar - Pinterest Style */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    padding: 12px 24px;
+    z-index: 1000;
+    border-bottom: 1px solid #e9e9e9;
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+    color: #e60023;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo span {
+    font-size: 18px;
+    font-weight: 600;
+    color: #111111;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #111111;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 24px;
+    transition: background-color 0.2s ease;
+}
+
+.nav-link:hover {
+    background-color: #efefef;
+}
+
+.search-bar {
+    flex: 1;
+    max-width: 600px;
+    display: flex;
+    align-items: center;
+    background-color: #efefef;
+    border-radius: 24px;
+    padding: 8px 16px;
+    transition: all 0.2s ease;
+}
+
+.search-bar:hover {
+    background-color: #e2e2e2;
+}
+
+.search-bar:focus-within {
+    background-color: #ffffff;
+    box-shadow: 0 0 0 2px #00000020;
+}
+
+.search-bar i {
+    color: #767676;
+    font-size: 18px;
+    margin-right: 12px;
+}
+
+.search-bar input {
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+}
+
+.search-bar input::placeholder {
+    color: #767676;
+    font-size: 14px;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: 8px;
+}
+
+.login-btn {
+    background: transparent;
+    color: #111111;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 24px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+}
+
+.login-btn:hover {
+    background-color: #efefef;
+}
+
+.signup-btn {
+    background-color: #e60023;
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 24px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+}
+
+.signup-btn:hover {
+    background-color: #b0001a;
+}
+
+/* Main Feed Container */
+.feed-container {
+    margin-top: 80px;
+    padding: 20px 24px;
+}
+
+.masonry-grid {
+    column-count: 5;
+    column-gap: 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Responsive column count */
+@media (max-width: 1400px) {
+    .masonry-grid {
+        column-count: 4;
+    }
+}
+
+@media (max-width: 1100px) {
+    .masonry-grid {
+        column-count: 3;
+    }
+}
+
+@media (max-width: 768px) {
+    .masonry-grid {
+        column-count: 2;
+    }
+    
+    .nav-container {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    
+    .search-bar {
+        order: 3;
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .masonry-grid {
+        column-count: 1;
+    }
+}
+
+/* Pin Cards */
+.pin-card {
+    break-inside: avoid;
+    margin-bottom: 24px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.pin-card:hover {
+    transform: translateY(-2px);
+}
+
+.pin-image {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: #efefef;
+}
+
+.pin-image img {
+    width: 100%;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.pin-card:hover .pin-image img {
+    transform: scale(1.02);
+}
+
+.pin-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 12px;
+}
+
+.pin-card:hover .pin-overlay {
+    opacity: 1;
+}
+
+.save-btn {
+    align-self: flex-end;
+    background-color: #e60023;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 24px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.save-btn:hover {
+    background-color: #b0001a;
+    transform: scale(1.02);
+}
+
+.pin-actions {
+    align-self: flex-end;
+    display: flex;
+    gap: 12px;
+    background-color: rgba(255,255,255,0.8);
+    padding: 8px 12px;
+    border-radius: 50px;
+}
+
+.pin-actions i {
+    font-size: 18px;
+    cursor: pointer;
+    color: #111111;
+    transition: color 0.2s ease;
+}
+
+.pin-actions i:hover {
+    color: #e60023;
+}
+
+.pin-info {
+    padding: 12px 8px 4px 8px;
+}
+
+.pin-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #111111;
+    margin-bottom: 4px;
+    line-height: 1.3;
+}
+
+.pin-author {
+    font-size: 12px;
+    color: #767676;
+    margin-bottom: 0;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
