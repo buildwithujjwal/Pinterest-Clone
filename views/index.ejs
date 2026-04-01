@@ -14,6 +14,7 @@
         <p class="header">Register Account</p>
 
         <form action="/register" method="post">
+        <p id="email-error" style="color: red; display: none;"></p>
         <input type="email" name="email" placeholder="Email" class="detail" /><br />
         <input type="text" name="username" placeholder="username" class="detail" /><br />
         <input type="text" name="fullname" placeholder="Full name" class="detail" />
@@ -21,7 +22,7 @@
         <input type="submit" class="btn int" value="Register Account">
         </form>
 
-        <a href="/forgot">Forgot your password?</a>
+        <a href="/forgot-password">Forgot your password?</a>
         <footer>
           <p>
             By continuing, you agree to Pinterest's
@@ -32,5 +33,18 @@
         </footer>
       </div>
     </div>
+    <script>
+      document.querySelector('form').addEventListener('submit', function(e) {
+        const email = document.querySelector('input[name="email"]').value;
+        const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        
+        if(!pattern.test(email)){
+            e.preventDefault();
+            document.getElementById('email-error').style.display = 'block';
+            document.getElementById('email-error').textContent = 'Please enter a valid email address';
+        }
+      });
+    </script>
+</body>
 </body>
 </html>

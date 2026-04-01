@@ -12,10 +12,12 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
   },
-  posts: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Post'
-  }],
+  posts: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Post",
+    },
+  ],
   dp: {
     type: String, // store image URL or file path
   },
@@ -27,6 +29,12 @@ const userSchema = new mongoose.Schema({
   fullname: {
     type: String,
     required: true,
+  },
+  otp: {
+    type: Number,
+  },
+  otpExpiry: {
+    type: Date,
   },
 });
 
